@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 003fc684eaeb9724f82774e136085990
+guid: 32f23a4926e6f7b4bad234dfaec454fe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Play Button V4_0
+      name: Idle Left_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1768
-        width: 1424
-        height: 758
+        x: 529
+        y: 1841
+        width: 536
+        height: 803
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75afa0338503f784992986a5e80bb54d
-      internalID: 1960773688
+      spriteID: 6458a5c1643722f4bab2da46df4deb0e
+      internalID: 1840472794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Play Button V4_1
+      name: Idle Left_1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 328
-        width: 1424
-        height: 758
+        x: 1969
+        y: 1841
+        width: 536
+        height: 810
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb0e1e108fe4a3847a73e6f07eb2dcb8
-      internalID: 1695914411
+      spriteID: 74a2f5960f029574eb4e73b000d95305
+      internalID: 256835869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Left_2
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 401
+        width: 536
+        height: 803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6659d2144095eb488203a95e33733ac
+      internalID: 1879823492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Left_3
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 401
+        width: 536
+        height: 803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325b8312f43324a42b497a21897be930
+      internalID: -1027247734
       vertices: []
       indices: 
       edges: []
@@ -169,8 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Play Button V4_0: 1960773688
-      Play Button V4_1: 1695914411
+      Idle Left_1: 256835869
+      Idle Left_0: 1840472794
+      Idle Left_2: 1879823492
+      Idle Left_3: -1027247734
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

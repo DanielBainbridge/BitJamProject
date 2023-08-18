@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 003fc684eaeb9724f82774e136085990
+guid: e69fdad57a36590418a5a1958c967f2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Play Button V4_0
+      name: Running Right_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1768
-        width: 1424
-        height: 758
+        x: 375
+        y: 1841
+        width: 536
+        height: 810
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75afa0338503f784992986a5e80bb54d
-      internalID: 1960773688
+      spriteID: d0b5759b5f0b24d49b925c1f14119da7
+      internalID: -946165424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Play Button V4_1
+      name: Running Right_1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 328
-        width: 1424
-        height: 758
+        x: 1815
+        y: 1841
+        width: 536
+        height: 803
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb0e1e108fe4a3847a73e6f07eb2dcb8
-      internalID: 1695914411
+      spriteID: 2151c475b18c14443a201539c4a9c2e1
+      internalID: -632870966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running Right_2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 401
+        width: 536
+        height: 810
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46a23c8ff1ca6f46b078175ba250fe9
+      internalID: 966506009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running Right_3
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 401
+        width: 536
+        height: 810
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a097195c33a61c94c802889125893679
+      internalID: 83498479
       vertices: []
       indices: 
       edges: []
@@ -169,8 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Play Button V4_0: 1960773688
-      Play Button V4_1: 1695914411
+      Running Right_1: -632870966
+      Running Right_0: -946165424
+      Running Right_2: 966506009
+      Running Right_3: 83498479
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

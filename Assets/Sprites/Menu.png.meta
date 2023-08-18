@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 003fc684eaeb9724f82774e136085990
+guid: 86f1526e6738b3a40a6fa8e9e8111548
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Play Button V4_0
+      name: Menu_0
       rect:
         serializedVersion: 2
         x: 11
-        y: 1768
-        width: 1424
-        height: 758
+        y: 1769
+        width: 1423
+        height: 757
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75afa0338503f784992986a5e80bb54d
-      internalID: 1960773688
+      spriteID: 65213348bb6a6e541a3d1c7332774296
+      internalID: -491855197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Play Button V4_1
+      name: Menu_1
       rect:
         serializedVersion: 2
         x: 11
-        y: 328
-        width: 1424
-        height: 758
+        y: 325
+        width: 1423
+        height: 755
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb0e1e108fe4a3847a73e6f07eb2dcb8
-      internalID: 1695914411
+      spriteID: c2984702116d5444c9d6a0987fcf0582
+      internalID: -1894008794
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Play Button V4_0: 1960773688
-      Play Button V4_1: 1695914411
+      Menu_0: -491855197
+      Menu_1: -1894008794
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
