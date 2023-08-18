@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public float accelerationTime = 1.7f;
     public AnimationCurve accelCurve;
     private float currentAnimationStep;
+    private Animator animator;
+    private bool lastHitDirectionRight = true;
 
     [Header("Collision")]
     [Range(0, 1)] public float collisionBounciness;
@@ -58,12 +60,15 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main.transform;
         spawnPosition = Vector2.zero;
         uiMenu = FindObjectOfType<UIFunctions>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetBool("Moving", velocity.x != 0);
+        animator.SetBool("FacingRight", lastHitDirectionRight);
     }
 
     private void FixedUpdate()
@@ -93,6 +98,10 @@ public class PlayerController : MonoBehaviour
                 currentAccelerationStep = Mathf.Clamp(currentAccelerationStep, 0, 1);
             }
         }
+        if(transform.position.y < -7)
+        {
+            Respawn();
+        }
     }
     private void LateUpdate()
     {
@@ -112,10 +121,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             desiredInput.x += 1;
+            lastHitDirectionRight = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             desiredInput.x -= 1;
+            lastHitDirectionRight = false;
         }
         Vector2 desiredVelocity = desiredInput * maxSpeed * accelCurve.Evaluate(currentAccelerationStep);
         float maxSpeedChange = maxAcceleration * Time.deltaTime;
@@ -158,6 +169,7 @@ public class PlayerController : MonoBehaviour
                 return;
             }
             isGrounded = true;
+            spawnPosition = transform.position;
         }
         else
         {
@@ -188,7 +200,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        spawnPosition = transform.position;
 
         velocity.y = (1.5f * jumpHeight / jumpTime);
     }

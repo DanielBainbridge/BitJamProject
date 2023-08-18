@@ -61,4 +61,10 @@ public class UIFunctions : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
+
 }
