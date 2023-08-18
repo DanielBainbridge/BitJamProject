@@ -7,11 +7,11 @@ public class NightTime : MonoBehaviour
     public float levelTime = 100f;
     float currentTime;
     SpriteRenderer spriteRenderer;
+    UIFunctions uiMenu;
 
     public List<Sprite> skySprites = new List<Sprite>();
     int spriteToCall
     {
-
         get { return (int)((currentTime / levelTime) * skySprites.Count); }
     }
 
@@ -19,27 +19,27 @@ public class NightTime : MonoBehaviour
     void Start()
     {
         currentTime = 0;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = skySprites[spriteToCall];
+        uiMenu = FindObjectOfType<UIFunctions>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!uiMenu.uiON)
         {
-            DecreaseCurrentTime(10, 1.1f);
+            currentTime += Time.deltaTime;
+
+            if (currentTime >= levelTime)
+            {
+                uiMenu.OpenFailScreen();
+                return;
+            }
+
+            spriteRenderer.sprite = skySprites[spriteToCall];
         }
-
-
-        if (currentTime >= levelTime)
-        {
-            currentTime = 0;
-            return;
-        }
-
-        spriteRenderer.sprite = skySprites[spriteToCall];
     }
 
     public void DecreaseCurrentTime(float decreaseAmount, float decreaseTime)

@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera")]
     Transform camera = null;
+    UIFunctions uiMenu;
+
+    int levelScore = 0;
 
     private float accelerationStep
     {
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     //game variables
     Vector2 spawnPosition;
 
-    Vector2 velocity;
+    public Vector2 velocity;
 
     private float currentAccelerationStep = 0;
     bool isGrounded = true;
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
         spawnPosition = transform.position;
         camera = Camera.main.transform;
         spawnPosition = Vector2.zero;
+        uiMenu = FindObjectOfType<UIFunctions>();
     }
 
     // Update is called once per frame
@@ -64,27 +68,36 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bool moving = Movement();
-        if (Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Backspace) || Input.GetKey(KeyCode.Escape))
         {
-            Jump();
-        }
-        if (!moving && currentAccelerationStep > 0)
-        {
-            currentAccelerationStep -= accelerationStep;
-            currentAccelerationStep = Mathf.Clamp(currentAccelerationStep, 0, 1);
+            if (!uiMenu.uiON)
+            {
+                uiMenu.OpenPauseScreen();
+            }
+            else
+            {
+                uiMenu.ClosePauseScreen();
+            }
         }
 
-
+        if (!uiMenu.uiON)
+        {
+            bool moving = Movement();
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Jump();
+            }
+            if (!moving && currentAccelerationStep > 0)
+            {
+                currentAccelerationStep -= accelerationStep;
+                currentAccelerationStep = Mathf.Clamp(currentAccelerationStep, 0, 1);
+            }
+        }
     }
     private void LateUpdate()
     {
         float size = Camera.main.orthographicSize;
         Vector3 newCamPos = new Vector3(transform.position.x, camera.position.y, -10);
-        if (isGrounded)
-        {
-            newCamPos.y = transform.position.y + size - 2 * playerSize.y;
-        }
         camera.position = Vector3.Lerp(camera.position, newCamPos, Vector3.Distance(camera.position, newCamPos) * Time.deltaTime);
     }
 
@@ -127,7 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.right, playerSize.x / 2.0f);
         RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.left, playerSize.x / 2.0f);
-        RaycastHit2D hitDown = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.down, (playerSize.y / 2.0f) * 1.01f);
+        RaycastHit2D hitDown = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.down, (playerSize.y / 2.0f));
         if (hitRight && velocity.x > 0)
         {
             velocity.x = -velocity.x * collisionBounciness;
@@ -139,11 +152,17 @@ public class PlayerController : MonoBehaviour
 
         if (hitDown)
         {
+            if(hitDown.transform.GetComponent<Spring>() != null)
+            {
+                hitDown.transform.GetComponent<Spring>().LaunchPlayer(this);
+                return;
+            }
             isGrounded = true;
         }
         else
         {
             isGrounded = false;
+            return;
         }
 
         if (hitDown && velocity.y < 0)
@@ -151,6 +170,15 @@ public class PlayerController : MonoBehaviour
             velocity.y = -velocity.y * collisionBounciness;
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Collectable"))
+        {
+            levelScore++;
+            Destroy(other.gameObject);
+        }
     }
 
 
@@ -162,15 +190,12 @@ public class PlayerController : MonoBehaviour
         }
         spawnPosition = transform.position;
 
-        float jumpMultiplier = 1;
-        //check for jump pads
-        RaycastHit2D hitDown = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.down, playerSize.y * 1.01f);
-        if (hitDown.transform.GetComponent<Spring>() != null)
-        {
-            jumpMultiplier = hitDown.transform.GetComponent<Spring>().jumpMultiplier;
-        }
+        velocity.y = (1.5f * jumpHeight / jumpTime);
+    }
 
-        velocity.y = (1.5f * jumpHeight / jumpTime) * jumpMultiplier;
+    public void AddVelocity(Vector2 vel)
+    {
+        velocity += vel;
     }
 
     void Respawn()
