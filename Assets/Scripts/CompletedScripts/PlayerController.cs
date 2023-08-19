@@ -149,9 +149,10 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCollisions()
     {
-        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, playerSize * 0.98f, 0, Vector2.right, playerSize.x / 2.0f);
-        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, playerSize * 0.98f, 0, Vector2.left, playerSize.x / 2.0f);
+        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, new Vector2(playerSize.x, (playerSize.y * 0.80f)), 0, Vector2.right, playerSize.x / 2.0f);
+        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, new Vector2(playerSize.x, (playerSize.y * 0.80f)), 0, Vector2.left, playerSize.x / 2.0f);
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, (playerSize.y / 2.0f));
+        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, (playerSize.y / 2.0f));
         if (hitRight && velocity.x > 0)
         {
             velocity.x = -velocity.x * collisionBounciness;
@@ -171,6 +172,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             spawnPosition = transform.position;
         }
+        else if (hitUp && velocity.y > 0)
+        {
+            velocity.y = -velocity.y * collisionBounciness;
+        }
         else
         {
             isGrounded = false;
@@ -179,7 +184,7 @@ public class PlayerController : MonoBehaviour
 
         if (hitDown && velocity.y < 0)
         {
-            velocity.y = -velocity.y * collisionBounciness;
+            velocity.y = 0;
         }
 
     }
@@ -213,4 +218,5 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = spawnPosition;
     }
+
 }
