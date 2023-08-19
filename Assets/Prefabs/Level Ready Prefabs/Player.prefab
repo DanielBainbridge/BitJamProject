@@ -148,8 +148,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  collisionBounciness: 0
-  playerSize: {x: 0.5, y: 0.5}
+  collisionBounciness: 0.1
+  playerSize: {x: 0.53, y: 0.85}
   velocity: {x: 0, y: 0}
 --- !u!50 &1526311743
 Rigidbody2D:
