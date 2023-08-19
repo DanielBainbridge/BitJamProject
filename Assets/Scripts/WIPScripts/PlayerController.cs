@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.Backspace) || Input.GetKey(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!uiMenu.uiON)
             {
@@ -149,9 +149,9 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCollisions()
     {
-        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.right, playerSize.x / 2.0f);
-        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.left, playerSize.x / 2.0f);
-        RaycastHit2D hitDown = Physics2D.BoxCast(transform.position, playerSize, 0, Vector2.down, (playerSize.y / 2.0f));
+        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, playerSize * 0.98f, 0, Vector2.right, playerSize.x / 2.0f);
+        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, playerSize * 0.98f, 0, Vector2.left, playerSize.x / 2.0f);
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, (playerSize.y / 2.0f));
         if (hitRight && velocity.x > 0)
         {
             velocity.x = -velocity.x * collisionBounciness;

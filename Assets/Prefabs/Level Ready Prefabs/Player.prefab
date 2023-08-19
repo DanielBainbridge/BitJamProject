@@ -148,7 +148,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  collisionBounciness: 0.05
+  collisionBounciness: 0
   playerSize: {x: 0.5, y: 0.5}
   velocity: {x: 0, y: 0}
 --- !u!50 &1526311743
