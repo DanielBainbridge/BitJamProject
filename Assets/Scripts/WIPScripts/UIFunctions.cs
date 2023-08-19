@@ -59,7 +59,7 @@ public class UIFunctions : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 
     public void QuitApplication()
